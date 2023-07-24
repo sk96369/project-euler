@@ -1,0 +1,14 @@
+[0][0][n]: player wins
+[0][n][n]: player loses
+[0][n][m]: player wins
+[n][m][m]: player wins
+[1][2][3]: player loses
+[1][2][n]: player wins
+[n][2][3]: player wins
+[1][n][3]: player wins
+
+
+
+2 3 4
+-> 1 3 4
+-> 1 2 4
