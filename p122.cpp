@@ -15,7 +15,6 @@ void cutlist(int n, std::list<int> &l)
 
 int findcombination(int n, const std::list<int> &kncopy)
 {
-//	std::cout << "____________________________\nFinding combination for: " << n << std::endl;
 	int biggest = 0;
 	int m = 0;
 	int recursion = -1;
@@ -156,7 +155,6 @@ int main()
 		std::cout << "Shortest way: " << shortest << " - New sum: " << sum << std::endl;
 	}
 	std::cout << sum << std::endl;
-
 	return 0;
 }
 
