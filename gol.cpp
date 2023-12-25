@@ -125,9 +125,7 @@ class World
 		}
 		while(getline(file, str));
 		grid.push_back(front);
-		std::cout << grid.size() << grid[0].size() << std::endl;
 	}
-
 
 	World(std::vector<std::vector<Cell*>> &g)
 	{
@@ -182,9 +180,10 @@ class World
 
 void World::showworld()
 {
-	for(int i = 0;i<s;i++)
+    std::cout << "size: " << grid.size() << " " << s << std::endl;
+	for(int i = 0;i<grid.size();i++)
 	{
-		for(int j = 0;j<s;j++)
+		for(int j = 0;j<grid[i].size();j++)
 		{
 			std::cout << grid[i][j]->getCell();
 		}
@@ -244,9 +243,9 @@ int World::check(int i, int j)
 void World::advance()
 {
 
-	for(int i = 1;i<s-1;i++)
+	for(int i = 1;i<grid.size() - 1;i++)
 	{
-		for(int j = 1;j<s-1;j++)
+		for(int j = 1;j<grid[i].size() - 1;j++)
 		{
 			int alive = check(i, j);
 			if(alive < 2)
@@ -257,9 +256,9 @@ void World::advance()
 				grid[i][j]->unkill();
 		}
 	}
-	for(int i = 0;i<s;i++)
+	for(int i = 0;i<grid.size();i++)
 	{
-		for(int j = 0;j<s;j++)
+		for(int j = 0;j < grid[i].size();j++)
 		{
 			grid[i][j]->commitchange();
 		}
@@ -300,9 +299,7 @@ int main(int argc, char *argv[])
 
 	do
 	{
-		std::cout << "TEST1\n";
 		world->showworld();
-		std::cout << "TEST2\n";
 		world->advance();
 		std::cout << "Press enter to advance, type in 'q' and press enter to exit.\n";
 		std::getline(std::cin, input);
